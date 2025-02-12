@@ -1,0 +1,25 @@
+@keyframes textAnimation {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-5rem);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.text-animate {
+  animation: textAnimation 1s ease-in-out forwards;
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-in-out forwards;
+}

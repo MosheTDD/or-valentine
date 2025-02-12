@@ -1,0 +1,44 @@
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-5px);
+  }
+  40% {
+    transform: translateX(5px);
+  }
+  60% {
+    transform: translateX(-5px);
+  }
+  80% {
+    transform: translateX(5px);
+  }
+}
+
+@keyframes colorChange {
+  0% {
+    color: #f783ac;
+  }
+  25% {
+    color: #4caf50; // A lighter green
+  }
+  50% {
+    color: #63e6be; // A positive blue
+  }
+  75% {
+    color: #c0eb75; // A bright yellow
+  }
+  100% {
+    color: 3bc9db;
+  }
+}
+
+.color-change {
+  animation: colorChange 1s ease-in-out infinite;
+}
+
+.shaking {
+  animation: shake 0.2s ease-in-out infinite;
+}

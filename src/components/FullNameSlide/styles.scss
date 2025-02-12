@@ -1,0 +1,35 @@
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-5px);
+  }
+  40% {
+    transform: translateX(5px);
+  }
+  60% {
+    transform: translateX(-5px);
+  }
+  80% {
+    transform: translateX(5px);
+  }
+}
+
+@keyframes flash-red {
+  0% {
+    background-color: transparent;
+  }
+  100% {
+    background-color: #f03e3e;
+  }
+}
+
+.shaking {
+  animation: shake 0.2s ease-in-out infinite;
+}
+
+.flash-red {
+  animation: flash-red 0.5s ease-in-out infinite;
+}
