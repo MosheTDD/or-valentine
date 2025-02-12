@@ -23,13 +23,13 @@ function WelcomeSlide() {
       setTimeout(() => {
         setTextIndex((prev) => prev + 1);
         setIsMounted(true);
-      }, 1000); // 1s fade-out before switching text
+      }, 1000);
 
       if (textIndex >= TEXTS.length - 1) {
         clearInterval(intervalRef.current!);
-        setTimeout(() => navigate('/full-name'), 2000); // Delay navigation for smooth transition
+        setTimeout(() => navigate('/full-name'), 2000);
       }
-    }, 3000); // Total cycle: 1s fade-out → 1s fade-in → 1s pause
+    }, 3000);
 
     return () => clearInterval(intervalRef.current!);
   }, [textIndex, navigate]);
@@ -39,7 +39,7 @@ function WelcomeSlide() {
       <Transition
         mounted={isMounted}
         transition='fade-up'
-        duration={1000} // 1s fade-in
+        duration={1000}
         timingFunction='ease'
       >
         {(styles) => (
