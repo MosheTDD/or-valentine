@@ -57,8 +57,8 @@ function PictureBattleSlide() {
       </Title>
       <Flex direction={'row'} justify='center' align={'center'} gap={'md'}>
         <Image
-          miw={imageIndex !== 4 ? '10rem' : '15rem'}
-          mah={imageIndex !== 4 ? '10rem' : '15rem'}
+          miw={imageIndex !== 4 ? '7rem' : '15rem'}
+          mah={imageIndex !== 4 ? '7rem' : '15rem'}
           src={OR_PICTURE}
           onClick={handleOrImageClicked}
           style={{
@@ -72,8 +72,8 @@ function PictureBattleSlide() {
               V.S.
             </Title>
             <Image
-              miw={'10rem'}
-              mah={'10rem'}
+              miw={'7rem'}
+              mah={'7rem'}
               className={`${isImageFlashing ? 'shaking' : ''}`}
               src={images[imageIndex]}
               onClick={handleWrongPictureClicked}
