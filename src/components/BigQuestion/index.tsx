@@ -23,8 +23,6 @@ function BigQuestionSlide() {
     'But I love you',
     'I thought you liked me :(',
     ':(',
-    'I still love you',
-    '*crying*',
   ];
 
   const [isMounted, setIsMounted] = useState<boolean>(false);

@@ -32,7 +32,7 @@ function WelcomeSlide() {
     }, 3000);
 
     return () => clearInterval(intervalRef.current!);
-  }, [textIndex, navigate]);
+  }, [textIndex, navigate, TEXTS.length]);
 
   return (
     <Flex direction='row' align='center' justify='center' h='100%' gap='md'>
