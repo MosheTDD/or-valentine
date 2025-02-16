@@ -22,3 +22,14 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+
+# Environment Variables (Do NOT commit Firebase credentials)
+.env
+.env.local
+.env.*.local
+
+# Firebase
+.firebaserc
+.firebase/
+
