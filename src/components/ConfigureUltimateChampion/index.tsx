@@ -63,6 +63,10 @@ function ConfigureUltimateChampion(props: Partial<DropzoneProps>) {
               backgroundColor: '#f5e8dc',
               borderRadius: '12px',
               border: 'none',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center',
             },
           }}
           {...props}
@@ -78,7 +82,7 @@ function ConfigureUltimateChampion(props: Partial<DropzoneProps>) {
               />
             </Flex>
           ) : (
-            <Group justify='center' gap='lg' mih={220}>
+            <Group justify='center' gap='lg' mih={'5rem'}>
               <Dropzone.Accept>
                 <IconUpload size={52} color='teal' stroke={1.5} />
               </Dropzone.Accept>
@@ -105,79 +109,95 @@ function ConfigureUltimateChampion(props: Partial<DropzoneProps>) {
       <Divider orientation='vertical' size='md' color='gray' />
 
       {/* Competitors' Images */}
-      <Flex direction={'column'} justify={'center'} align={'center'} gap={'xs'}>
-        <Flex direction='row' align='center' gap={'md'}>
-          <Dropzone
-            onDrop={handleCompetitorDrop}
-            maxFiles={5}
-            maxSize={5 * 1024 ** 2}
-            accept={ALLOWED_IMAGE_TYPES}
-            disabled={competitorImages.length >= 5}
-            styles={{
-              root: {
-                backgroundColor: '#f5e8dc',
-                borderRadius: '12px',
-                padding: '2rem',
-                opacity: competitorImages.length >= 5 ? 0.5 : 1,
-                border: 'none',
-                cursor: competitorImages.length >= 5 ? 'default' : 'pointer',
-              },
-            }}
-            {...props}
+      <Flex direction={'column'} justify={'center'} align={'center'}>
+        <Dropzone
+          w={'20rem'}
+          h={'13rem'}
+          onDrop={handleCompetitorDrop}
+          maxFiles={5}
+          maxSize={5 * 1024 ** 2}
+          accept={ALLOWED_IMAGE_TYPES}
+          disabled={competitorImages.length >= 5}
+          styles={{
+            root: {
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center',
+              backgroundColor: '#f5e8dc',
+              borderTopLeftRadius: '12px',
+              borderTopRightRadius: '12px',
+              padding: '1rem',
+              opacity: competitorImages.length >= 5 ? 0.5 : 1,
+              border: 'none',
+              cursor: competitorImages.length >= 5 ? 'default' : 'pointer',
+            },
+          }}
+          {...props}
+        >
+          <Group justify='center' gap='lg' h={'10rem'}>
+            <Dropzone.Accept>
+              <IconUpload size={52} color='teal' stroke={1.5} />
+            </Dropzone.Accept>
+            <Dropzone.Reject>
+              <IconX size={52} color='red' stroke={1.5} />
+            </Dropzone.Reject>
+            <Dropzone.Idle>
+              <IconPhoto size={52} color='gray' stroke={1.5} />
+            </Dropzone.Idle>
+            <div style={{ textAlign: 'center' }}>
+              <Text size='xl' fw={600}>
+                Upload Competitors' Pictures
+              </Text>
+              <Text size='sm' c='dimmed' mt={7}>
+                <Text>{competitorImages.length} / 5</Text>
+                <br />
+                Max size: 5MB each
+              </Text>
+            </div>
+          </Group>
+        </Dropzone>
+        <ScrollArea
+          w={'20rem'}
+          h={'4.5rem'}
+          bg={'#f5e8dc'}
+          px={10}
+          style={{
+            borderBottomLeftRadius: '12px',
+            borderBottomRightRadius: '12px',
+            borderTop: 'solid 1px #d5bdaf',
+            bottom: 2,
+          }}
+        >
+          <Flex
+            h={'4.3rem'}
+            w={'20rem'}
+            gap='sm'
+            direction='row'
+            justify='center'
+            align={'center'}
           >
-            <Group justify='center' gap='lg' mih={220}>
-              <Dropzone.Accept>
-                <IconUpload size={52} color='teal' stroke={1.5} />
-              </Dropzone.Accept>
-              <Dropzone.Reject>
-                <IconX size={52} color='red' stroke={1.5} />
-              </Dropzone.Reject>
-              <Dropzone.Idle>
-                <IconPhoto size={52} color='gray' stroke={1.5} />
-              </Dropzone.Idle>
-              <div style={{ textAlign: 'center' }}>
-                <Text size='xl' fw={600}>
-                  Upload Competitors' Pictures
-                </Text>
-                <Text size='sm' color='dimmed' mt={7}>
-                  <Text>{competitorImages.length} / 5</Text>
-                  <br />
-                  Max size: 5MB each
-                </Text>
-              </div>
-            </Group>
-          </Dropzone>
-          <ScrollArea
-            bg={'#f5e8dc'}
-            p={10}
-            h={300}
-            w={150}
-            style={{
-              overflowY: 'auto',
-              borderRadius: 12,
-            }}
-          >
-            <Flex gap='sm' direction='column' justify='center' align={'center'}>
-              {competitorImages.length > 0 ? (
-                competitorImages.map((src, index) => (
-                  <Tooltip key={index} label='Remove' withArrow>
-                    <Image
-                      src={src}
-                      alt={`Competitor ${index + 1}`}
-                      width={'3rem'}
-                      height={'3rem'}
-                      radius='md'
-                      onClick={() => handleRemoveCompetitorImage(index)}
-                      style={{ cursor: 'pointer' }}
-                    />
-                  </Tooltip>
-                ))
-              ) : (
-                <Text>N O N E</Text>
-              )}
-            </Flex>
-          </ScrollArea>
-        </Flex>
+            {competitorImages.length > 0 ? (
+              competitorImages.map((src, index) => (
+                <Tooltip key={index} label='Remove' withArrow>
+                  <Image
+                    src={src}
+                    alt={`Competitor ${index + 1}`}
+                    width={'60rem'}
+                    height={'60rem'}
+                    radius='md'
+                    onClick={() => handleRemoveCompetitorImage(index)}
+                    style={{ cursor: 'pointer' }}
+                  />
+                </Tooltip>
+              ))
+            ) : (
+              <Text c={'#d5bdaf'} fw={'bolder'} fz={'h4'}>
+                N O N E
+              </Text>
+            )}
+          </Flex>
+        </ScrollArea>
       </Flex>
     </Flex>
   );
